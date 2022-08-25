@@ -16,7 +16,9 @@ For running this program in docker, run the following the comment:
     --build: it is for build or rebuild services.
     
 For seeng logs of a particular container:
-    docker logs -f <container_name>
+    
+    command : docker logs -f <container_name>
     
 For deleting containers:
-    docker-compose down
+    
+    command : docker-compose down
