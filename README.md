@@ -11,6 +11,8 @@ For running this program in docker, run the following the comment:
    
    command : docker-compose up -d --build 
    
+Which means
+
     up : it is for creating and running containers.
     -d : it is for running container in detach mode.
     --build: it is for build or rebuild services.
