@@ -9,8 +9,7 @@ In this I have created dockerfile and docker-compose file.
 
 For running this program in docker, run the following the comment:
    
-   docker-compose up -d --build
-    
+   command : docker-compose up -d --build 
     up : it is for creating and running containers.
     -d : it is for running container in detach mode.
     --build: it is for build or rebuild services.
