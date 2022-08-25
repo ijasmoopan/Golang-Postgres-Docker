@@ -20,7 +20,7 @@ func main() {
 func connectDB(){
 	fmt.Println("Connecting..")
 	// these details match the docker-compose.yml file.
-	postgresInfo := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=disable", "postgres", 5432, "postgres", "mypassword", "test")
+	postgresInfo := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=disable", "postgres", 5432, "postgres", "mypassword", "sample")
 	
 	db, err := sql.Open("postgres", postgresInfo)
 	if err != nil {
@@ -36,16 +36,26 @@ func connectDB(){
 		}
 	}
 	fmt.Println("Connected:", db.Ping() == nil)
-	_, err = db.Exec(`DROP TABLE IF EXISTS COMPANY;`)
+	_, err = db.Exec(`DROP TABLE IF EXISTS NEWCOMPANY;`)
 	if err != nil {
 		panic(err)
 	}
-	_, err = db.Exec(`CREATE TABLE COMPANY (ID INT PRIMARY KEY, NAME text);`)
+	_, err = db.Exec(`CREATE TABLE NEWCOMPANY (ID INT PRIMARY KEY, NAME text);`)
 	if err != nil {
 		fmt.Println("Error while creating table:", err)
 		panic(err)
 	}
 	fmt.Println("Table company is created..")
+	_, err = db.Exec(`INSERT INTO NEWCOMPANY (ID, NAME) VALUES (1, 'Ijas');`)
+	if err != nil {
+		fmt.Println("Error while inserting values into table:", err)
+		panic(err)
+	}
+	_, err = db.Exec(`INSERT INTO NEWCOMPANY (ID, NAME) VALUES (2, 'Niyas');`)
+	if err != nil {
+		fmt.Println("Error while inserting values into table:", err)
+		panic(err)
+	}
 }
 
 func helloHandler(w http.ResponseWriter, r *http.Request){

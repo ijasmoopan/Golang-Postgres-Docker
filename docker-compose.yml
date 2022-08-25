@@ -11,7 +11,7 @@ services:
       POSTGRES_PASSWORD: mypassword
       # Optional: Give a name to the database, otherwise use the default 
       # value POSTGRES_USER as a database name (user in this case.)
-      POSTGRES_DB: test
+      POSTGRES_DB: sample
     ports: 
       - "5444:5432"
     volumes:
